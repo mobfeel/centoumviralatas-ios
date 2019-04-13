@@ -24,38 +24,13 @@ class PetsCollectionViewController: UICollectionViewController {
                                                selector: #selector(PetsCollectionViewController.goToContactForm(notification:)),
                                                name: Notification.Name(rawValue: "goToContactForm"),
                                                object: nil)
-        
         self.fetchPets()
         
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .gray
-        refreshControl.addTarget(self, action: #selector(PetsCollectionViewController.refreshControlAction(action:)), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(PetsCollectionViewController.refreshControlAction(action:)), for: UIControl.Event.valueChanged)
         self.collectionView?.addSubview(refreshControl)
-
-        //
-//        self.petsData = [
-//            [
-//                "status": "Na ONG",
-//                "estaPasseando": "0",
-//                "temperamento": "Não especificado",
-//                "anoNascAprox": "2009",
-//                "temPadrinho": "0",
-//                "podePassear": "1",
-//                "idPet": "300",
-//                "historia": "História não cadastrada.",
-//                "obs": "nenhuma",
-//                "fotoPet": "",
-//                "estaCastrado": "1",
-//                "sexo": "fêmea",
-//                "nomePet": "Zafirah",
-//                "porte": "P/M",
-//                "necessidadesEspeciais": "Não possui",
-//                "tipo": "canino"
-//            ]
-//        ]
-//        self.petsOrigin = self.petsData
-//
-        
+ 
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,7 +59,6 @@ class PetsCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.petsData.count
-        //return 3
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -180,13 +154,7 @@ class PetsCollectionViewController: UICollectionViewController {
                 }
                 
                 if Filter.shared.sexo != Sexo.Todos {
-                    if pet.sex != Filter.shared.especie.rawValue.lowercased() {
-                        show = false
-                    }
-                }
-                
-                if Filter.shared.idade != Idade.Todos {
-                    if pet.sex != Filter.shared.especie.rawValue.lowercased() {
+                    if pet.sex != Filter.shared.sexo.rawValue.lowercased() {
                         show = false
                     }
                 }

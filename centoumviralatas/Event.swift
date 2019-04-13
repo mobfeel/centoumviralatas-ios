@@ -41,6 +41,6 @@ class Event: Mappable {
         endTime <- map["horaFim"]
         imagePath <- map["imagem"]
         type <- map["tipo"]
-        title <- map["title"]
+        title <- map["titulo"]
     }
 }

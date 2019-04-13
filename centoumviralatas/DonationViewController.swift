@@ -13,7 +13,7 @@ class DonationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let pagingMenuController = self.childViewControllers.first as! PagingMenuController
+        let pagingMenuController = self.children.first as! PagingMenuController
         pagingMenuController.setup(PagingMenuDonations())
         pagingMenuController.onMove = { state in
             switch state {

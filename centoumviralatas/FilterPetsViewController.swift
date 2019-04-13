@@ -23,12 +23,6 @@ enum Sexo: String {
     case Macho = "Macho"
 }
 
-enum Idade: String {
-    case Todos = "Todos"
-    case Filhote = "Filhote"
-    case Adulto = "Adulto"
-    case Idoso = "Idoso"
-}
 
 enum Especie: String {
     case Todos = "Todos"
@@ -69,16 +63,6 @@ class FilterPetsViewController: FormViewController {
                 }.cellUpdate({ (cell, row) in
                     cell.accessoryType = .disclosureIndicator
                 })
-            <<< ActionSheetRow<String>("idade") {
-                $0.title = "Idade"
-                $0.selectorTitle = "Escolha uma opção"
-                $0.options = ["Todos","Filhote", "Adulto", "Idoso"]
-                $0.value = Filter.shared.idade.rawValue
-                // $0.add(rule: RuleRequired())
-                }.cellUpdate({ (cell, row) in
-                    cell.accessoryType = .disclosureIndicator
-                })
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -86,7 +70,6 @@ class FilterPetsViewController: FormViewController {
             Filter.shared.porte = Porte(rawValue: self.form.rowBy(tag: "porte")?.baseValue as! String)!
             Filter.shared.especie = Especie(rawValue: self.form.rowBy(tag: "especie")?.baseValue as! String)!
             Filter.shared.sexo = Sexo(rawValue: self.form.rowBy(tag: "sexo")?.baseValue as! String)!
-            Filter.shared.idade = Idade(rawValue: self.form.rowBy(tag: "idade")?.baseValue as! String)!
             return
         }
     }
@@ -109,12 +92,11 @@ struct Filter {
     var porte = Porte.Todos
     var especie = Especie.Todos
     var sexo = Sexo.Todos
-    var idade = Idade.Todos
+    
     func makeDefault(){
         Filter.shared.porte = .Todos
         Filter.shared.especie = .Todos
         Filter.shared.sexo = .Todos
-        Filter.shared.idade = .Todos
     }
     
 }

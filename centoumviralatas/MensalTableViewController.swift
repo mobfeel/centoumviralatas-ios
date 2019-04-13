@@ -31,8 +31,6 @@ class MensalTableViewController: UITableViewController {
             
             let url = URL(string: links[indexPath.row])!
             let svc = SFSafariViewController(url: url)
-            svc.preferredBarTintColor = UIColor.orange
-            svc.preferredControlTintColor = .white
             self.present(svc, animated: true, completion: nil)
         }
         
