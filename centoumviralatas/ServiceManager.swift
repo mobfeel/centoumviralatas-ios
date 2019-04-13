@@ -6,28 +6,46 @@
 //
 
 import Alamofire
+import ObjectMapper
+import CoreData
+
+
 
 class ServiceManager {
-    static let URL = "http://thiagocury.eti.br/101viralatas/sistema/"
-    
-    static func fetchPets( result: @escaping (_ result: [ [String: String] ]) -> Void) {
-        let url = ServiceManager.URL + "buscar-pets.php"
-        
-        Alamofire.request(url, method: .get, parameters: nil).responseJSON { (response) in
-            if response.result.isSuccess {
-                if let pets = response.result.value as? [ [String: String] ] {
+    static func fetchPets( result: @escaping (_ result: [Pet]) -> Void) {
+        Alamofire.request(ServiceURLs.SEARCH_PET, method: .get, parameters: nil).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                if let pets = Mapper<Pet>().mapArray(JSONObject: value){
+                    PetDAO.removeAllPets()
+                    
+                    do{
+                        try Util.getManagedObjectContext().save()
+                    }catch let error {
+                        print(error.localizedDescription)
+                    }
+                    
                     result(pets)
-                }else{
-                    result([])
                 }
-            }else{
-                result([])
+            case .failure(_):
+                result(PetDAO.fetch())
             }
         }
     }
     
-    static func fetchEvents(result: @escaping (_ result: [ [String: String] ] ) -> Void) {
-        let url = ServiceManager.URL + "buscar-eventos.php"
+    static func fetchEvents(result: @escaping (_ result: [Event] ) -> Void) {
+        Alamofire.request(ServiceURLs.SEARCH_EVENTS, method: .get).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                if let events = Mapper<Event>().mapArray(JSONObject: value) {
+                    result(events)
+                }
+            case .failure(_):
+                result([])
+            }
+        }
+        
+        
 //        [{"idEvento":"2","titulo":"Mutirão de Banho","descricao":"Venha auxiliar no banho dos nossos peludinhos","local":"na ONG","data":"2018-01-31","horaInicio":"08:00:00","horaFim":"18:00:00","imagem":"../fotos-eventos/2.jpg","tipo":"Banho"}]
 //        let events = [
 //            [
@@ -47,17 +65,17 @@ class ServiceManager {
 //        result(events)
 //
         
-        Alamofire.request(url, method: .get, parameters: nil).responseJSON { (response) in
-            if response.result.isSuccess {
-                if let pets = response.result.value as? [ [String: String] ] {
-                    result(pets)
-                }else{
-                    result([])
-                }
-            }else{
-                result([])
-            }
-        }
+//        Alamofire.request(url, method: .get, parameters: nil).responseJSON { (response) in
+//            if response.result.isSuccess {
+//                if let pets = response.result.value as? [ [String: String] ] {
+//                    result(pets)
+//                }else{
+//                    result([])
+//                }
+//            }else{
+//                result([])
+//            }
+//        }
     }
     
     static func loadImage(_ path: String, completionHandler:@escaping (_ image: UIImage? ) -> Void) {
@@ -66,7 +84,7 @@ class ServiceManager {
         }else{
             var pathAux = path
             pathAux.removeFirst(3)
-            let url = "http://thiagocury.eti.br/101viralatas/" + pathAux
+            let url = ServiceURLs.PHOTOS + pathAux
             ImageLoader.sharedLoader.imageForUrl(url, completionHandler: { (image, url) in
                 completionHandler(image)
             })

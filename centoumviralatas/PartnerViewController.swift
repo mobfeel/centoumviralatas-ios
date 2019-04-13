@@ -16,7 +16,7 @@ class PartnerViewController: UIViewController {
 
     @IBAction func clickOnPartner(_ sender: UIButton) {
         let links = ["",
-                     "http://www.thiagocury.eti.br",
+                     "http://www.mobfeel.com.br",
                      "http://www.taurussuplementos.com.br/",
                      "http://www.dasppet.com.br/rs/index.html",
                      "http://sosracoes.com.br/",
@@ -26,8 +26,8 @@ class PartnerViewController: UIViewController {
         
         let url = URL(string: links[sender.tag])!
         let svc = SFSafariViewController(url: url)
-        svc.preferredBarTintColor = UIColor.orange
-        svc.preferredControlTintColor = .white
+        //svc.preferredBarTintColor = UIColor.
+        //svc.preferredControlTintColor = .white
         self.present(svc, animated: true, completion: nil)
     }
 }

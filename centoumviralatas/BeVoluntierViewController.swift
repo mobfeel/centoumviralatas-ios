@@ -19,7 +19,6 @@ class BeVoluntierViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableView.tableFooterView = UIView()
         return 12
     }
     

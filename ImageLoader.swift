@@ -20,9 +20,7 @@ class ImageLoader {
         let url = URL(string: urlStringConvert )
         
         DispatchQueue.global(qos: .background).async { 
-            let data: NSData? = self.cache.object(forKey: urlString as NSString) as? NSData
-            if let goodData = data {
-                let image = UIImage(data: goodData as Data)
+            if let image = self.cache.object(forKey: urlString as NSString)  {
                 DispatchQueue.main.async {
                     completionHandler(image, urlString)
                 }

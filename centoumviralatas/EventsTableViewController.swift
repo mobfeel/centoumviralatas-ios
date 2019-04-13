@@ -7,11 +7,13 @@
 
 import UIKit
 
+let identifierShowEventDetail = "ShowEventDetail"
+
 class EventsTableViewController: UITableViewController {
 
     @IBOutlet var loading: UIActivityIndicatorView!
     
-    var eventsData: [[String: String]] = []
+    var eventsData: [Event] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         ServiceManager.fetchEvents { (result) in
@@ -47,15 +49,15 @@ class EventsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventTableViewCell
         let event = self.eventsData[indexPath.row]
-        cell.lblTitle.text = event["titulo"]
-        cell.lblLocation.text = event["local"]
-        cell.lblType.text = event["tipo"]
+        cell.lblTitle.text = event.title
+        cell.lblLocation.text = event.local
+        cell.lblType.text = event.title
         
-        let date = Util.getEventDate(event)
-        cell.lblDate.text = "\(date.day) \(date.shortMonthName) / \(date.hour)h"
-        cell.lblDateDesc.text = date.string(dateStyle: .long, timeStyle: .short)
+        let eventDate = event.eventDate
+        cell.lblDate.text = "\(eventDate.day) \(eventDate.shortMonthName) / \(eventDate.hour)h"
+        cell.lblDateDesc.text = eventDate.string(dateStyle: .long, timeStyle: .short)
         
-        ServiceManager.loadImage(event["imagem"]!) { (image) in
+        ServiceManager.loadImage(event.imagePath!) { (image) in
             if let image = image {
                 cell.coverPhoto.image = image
             }
@@ -66,15 +68,15 @@ class EventsTableViewController: UITableViewController {
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let event = self.eventsData[indexPath.row]
-        self.performSegue(withIdentifier: "ShowEventDetail", sender: event)
+        self.performSegue(withIdentifier: identifierShowEventDetail, sender: event)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "ShowEventDetail":
+            case identifierShowEventDetail:
                 let eventDetailController = segue.destination as! EventDetailViewController
-                eventDetailController.event = sender as! [String: String]
+                eventDetailController.event = sender as? Event
             default:
                 break
             }

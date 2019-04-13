@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		300A998BF897EE13ED006FAD /* Pods_centoumviralatasTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140ED040641FF90D688B415F /* Pods_centoumviralatasTests.framework */; };
 		66B66517A276604243DE22D4 /* Pods_centoumviralatas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC00881C340F6245F3E44885 /* Pods_centoumviralatas.framework */; };
+		A904844C22614FF9009FA136 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904844B22614FF9009FA136 /* Event.swift */; };
+		A9779DE722591DA70047A9C0 /* ServiceURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9779DE622591DA70047A9C0 /* ServiceURLs.swift */; };
+		A9779DEA225920D70047A9C0 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9779DE9225920D70047A9C0 /* Pet.swift */; };
+		A9779DED22592C4E0047A9C0 /* Transforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9779DEC22592C4E0047A9C0 /* Transforms.swift */; };
+		A978FA402260EDAB00FDAAD7 /* centoumviralatasCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A978FA3E2260EDAB00FDAAD7 /* centoumviralatasCore.xcdatamodeld */; };
+		A978FA432260F6BC00FDAAD7 /* PetDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978FA422260F6BC00FDAAD7 /* PetDAO.swift */; };
 		A9B0CB471FF71CFC005D2083 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0CB461FF71CFC005D2083 /* AppDelegate.swift */; };
 		A9B0CB4E1FF71CFC005D2083 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B0CB4D1FF71CFC005D2083 /* Assets.xcassets */; };
 		A9B0CB511FF71CFC005D2083 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B0CB4F1FF71CFC005D2083 /* LaunchScreen.storyboard */; };
@@ -60,6 +66,12 @@
 		47FEC745B125028225058CC4 /* Pods_centoumviralatasUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_centoumviralatasUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D2C1168CF4009EB0B9BFA7D /* Pods-centoumviralatasUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-centoumviralatasUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-centoumviralatasUITests/Pods-centoumviralatasUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		997D2596F2BCE2939A3989B7 /* Pods-centoumviralatas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-centoumviralatas.debug.xcconfig"; path = "Pods/Target Support Files/Pods-centoumviralatas/Pods-centoumviralatas.debug.xcconfig"; sourceTree = "<group>"; };
+		A904844B22614FF9009FA136 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		A9779DE622591DA70047A9C0 /* ServiceURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceURLs.swift; sourceTree = "<group>"; };
+		A9779DE9225920D70047A9C0 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		A9779DEC22592C4E0047A9C0 /* Transforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transforms.swift; sourceTree = "<group>"; };
+		A978FA3F2260EDAB00FDAAD7 /* centoumviralatas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = centoumviralatas.xcdatamodel; sourceTree = "<group>"; };
+		A978FA422260F6BC00FDAAD7 /* PetDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDAO.swift; sourceTree = "<group>"; };
 		A9B0CB431FF71CFC005D2083 /* centoumviralatas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = centoumviralatas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B0CB461FF71CFC005D2083 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B0CB4D1FF71CFC005D2083 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +159,32 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A9779DE822591F110047A9C0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A9779DE622591DA70047A9C0 /* ServiceURLs.swift */,
+				A9B0CB7D1FF723C5005D2083 /* ServiceManager.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		A9779DEB225923F80047A9C0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A9B0CB811FF743C1005D2083 /* Util.swift */,
+				A9779DEC22592C4E0047A9C0 /* Transforms.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		A978FA412260F6AE00FDAAD7 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				A978FA422260F6BC00FDAAD7 /* PetDAO.swift */,
+			);
+			name = DAO;
+			sourceTree = "<group>";
+		};
 		A9B0CB3A1FF71CFC005D2083 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +210,7 @@
 		A9B0CB451FF71CFC005D2083 /* centoumviralatas */ = {
 			isa = PBXGroup;
 			children = (
+				A9779DEB225923F80047A9C0 /* Helpers */,
 				A9B0CB771FF71D31005D2083 /* Models */,
 				A9B0CB761FF71D21005D2083 /* Views */,
 				A9B0CB751FF71D16005D2083 /* ViewControllers */,
@@ -205,6 +244,7 @@
 				A9B0CB4F1FF71CFC005D2083 /* LaunchScreen.storyboard */,
 				A9B0CB521FF71CFC005D2083 /* Info.plist */,
 				A9B0CB461FF71CFC005D2083 /* AppDelegate.swift */,
+				A978FA3E2260EDAB00FDAAD7 /* centoumviralatasCore.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -233,8 +273,10 @@
 		A9B0CB771FF71D31005D2083 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A9B0CB7D1FF723C5005D2083 /* ServiceManager.swift */,
-				A9B0CB811FF743C1005D2083 /* Util.swift */,
+				A978FA412260F6AE00FDAAD7 /* DAO */,
+				A9779DE822591F110047A9C0 /* Service */,
+				A9779DE9225920D70047A9C0 /* Pet.swift */,
+				A904844B22614FF9009FA136 /* Event.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -308,7 +350,6 @@
 				A9B0CB401FF71CFC005D2083 /* Frameworks */,
 				A9B0CB411FF71CFC005D2083 /* Resources */,
 				487C3C5B694A660FF71F451F /* [CP] Embed Pods Frameworks */,
-				A281F687678318127DA2C5C0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,8 +368,6 @@
 				A9B0CB531FF71CFC005D2083 /* Sources */,
 				A9B0CB541FF71CFC005D2083 /* Frameworks */,
 				A9B0CB551FF71CFC005D2083 /* Resources */,
-				6D188211951F8FB9FFAB7AD5 /* [CP] Embed Pods Frameworks */,
-				5299338F3D920C262CDD60DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -348,8 +387,6 @@
 				A9B0CB5E1FF71CFD005D2083 /* Sources */,
 				A9B0CB5F1FF71CFD005D2083 /* Frameworks */,
 				A9B0CB601FF71CFD005D2083 /* Resources */,
-				364AD201983B9D5D01E8920E /* [CP] Embed Pods Frameworks */,
-				1BBA1F41FA01CB910E71D6A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -435,46 +472,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1BBA1F41FA01CB910E71D6A5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-centoumviralatasUITests/Pods-centoumviralatasUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		364AD201983B9D5D01E8920E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-centoumviralatasUITests/Pods-centoumviralatasUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		487C3C5B694A660FF71F451F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-centoumviralatas/Pods-centoumviralatas-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-centoumviralatas/Pods-centoumviralatas-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CRNotifications/CRNotifications.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 			);
@@ -483,42 +491,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CRNotifications.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagingMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-centoumviralatas/Pods-centoumviralatas-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5299338F3D920C262CDD60DB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-centoumviralatasTests/Pods-centoumviralatasTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6D188211951F8FB9FFAB7AD5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-centoumviralatasTests/Pods-centoumviralatasTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-centoumviralatas/Pods-centoumviralatas-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9A576EE9C3DB51B80016F639 /* [CP] Check Pods Manifest.lock */ = {
@@ -537,21 +516,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A281F687678318127DA2C5C0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-centoumviralatas/Pods-centoumviralatas-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BAC54E65BDBDA6A9F5DE7635 /* [CP] Check Pods Manifest.lock */ = {
@@ -598,10 +562,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9B3716C1FF965E200C65DBA /* EventTableViewCell.swift in Sources */,
+				A9779DE722591DA70047A9C0 /* ServiceURLs.swift in Sources */,
+				A9779DED22592C4E0047A9C0 /* Transforms.swift in Sources */,
 				A9B3717C1FFC4F6A00C65DBA /* MensalTableViewController.swift in Sources */,
 				A9B371801FFC6B5800C65DBA /* ApadrinhamentoTableViewController.swift in Sources */,
 				A9BAE4E22008546D00FA76CD /* EventDetailViewController.swift in Sources */,
+				A9779DEA225920D70047A9C0 /* Pet.swift in Sources */,
 				A9B0CB7C1FF72265005D2083 /* PetsCollectionViewController.swift in Sources */,
+				A978FA432260F6BC00FDAAD7 /* PetDAO.swift in Sources */,
 				A9B3717E1FFC587F00C65DBA /* PartnerViewController.swift in Sources */,
 				A9B371691FF9651300C65DBA /* EventsTableViewController.swift in Sources */,
 				A9B0CB471FF71CFC005D2083 /* AppDelegate.swift in Sources */,
@@ -609,6 +577,8 @@
 				A9B0CB821FF743C1005D2083 /* Util.swift in Sources */,
 				A9B371791FFC39E600C65DBA /* DonationViewController.swift in Sources */,
 				A9B371841FFC715100C65DBA /* FilterPetsViewController.swift in Sources */,
+				A904844C22614FF9009FA136 /* Event.swift in Sources */,
+				A978FA402260EDAB00FDAAD7 /* centoumviralatasCore.xcdatamodeld in Sources */,
 				A9B371821FFC6D4200C65DBA /* SocialTableViewController.swift in Sources */,
 				A9B371711FF9737500C65DBA /* ContactViewController.swift in Sources */,
 				A9B371871FFDA17D00C65DBA /* BrechoTableViewController.swift in Sources */,
@@ -709,7 +679,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -760,7 +730,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -776,11 +746,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2G52X8JVF4;
 				INFOPLIST_FILE = centoumviralatas/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.guicolares.centoumviralatas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -792,11 +763,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2G52X8JVF4;
 				INFOPLIST_FILE = centoumviralatas/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.guicolares.centoumviralatas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -910,6 +882,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A978FA3E2260EDAB00FDAAD7 /* centoumviralatasCore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A978FA3F2260EDAB00FDAAD7 /* centoumviralatas.xcdatamodel */,
+			);
+			currentVersion = A978FA3F2260EDAB00FDAAD7 /* centoumviralatas.xcdatamodel */;
+			path = centoumviralatasCore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A9B0CB3B1FF71CFC005D2083 /* Project object */;
 }

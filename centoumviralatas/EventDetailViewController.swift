@@ -12,14 +12,14 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet var eventTableView: UITableView!
     
-    var event: [String: String]!
+    var event: Event!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.eventTableView.delegate = self
         self.eventTableView.dataSource = self
         self.eventTableView.tableFooterView = UIView()
-        self.title = self.event["titulo"]
+        self.title = self.event.title
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,13 +27,13 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let date = Util.getEventDate(event)
+        let date = self.event.eventDate
         
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CoverPhotoCell", for: indexPath)
             let imageView = cell.viewWithTag(1) as! UIImageView
-            ServiceManager.loadImage(self.event["imagem"]!) { (image) in
+            ServiceManager.loadImage(self.event.imagePath!) { (image) in
                 if let image = image {
                     imageView.image = image
                 }
@@ -49,8 +49,8 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             
             lblDay.text = "\(date.day)"
             lblMonth.text = "\(date.shortMonthName)".uppercased()
-            lblTitle.text = self.event["titulo"]
-            lblDesc.text = self.event["descricao"]
+            lblTitle.text = self.event.title
+            lblDesc.text = self.event.description
             
             return cell
         case 2:
@@ -62,14 +62,14 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
             cell.imageView?.image = UIImage(named: "location-cell")
-            (cell.viewWithTag(1) as! UILabel).text = self.event["local"]
+            (cell.viewWithTag(1) as! UILabel).text = self.event.local
             return cell
         default:
             break
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell", for: indexPath)
-        (cell.viewWithTag(1) as! UILabel).text = self.event["tipo"]
+        (cell.viewWithTag(1) as! UILabel).text = self.event.type
         return cell
      
         

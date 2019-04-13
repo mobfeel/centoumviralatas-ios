@@ -12,7 +12,7 @@ target 'centoumviralatas' do
  pod 'PagingMenuController', '~> 2.2'
  pod 'SwiftDate', '~> 4.5'
  pod 'CRNotifications'
- pod 'ObjectMapper', '~> 3.4'
+ pod 'ObjectMapper', '~> 3.3'
 
   # Pods for centoumviralatas
 

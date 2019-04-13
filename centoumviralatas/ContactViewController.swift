@@ -31,41 +31,41 @@ class ContactViewController: FormViewController, MFMailComposeViewControllerDele
                     self.form.append(Section("Pet"))
                     self.form.allSections.first?.append(LabelRow("pet_name"){
                         $0.title = "Nome"
-                        $0.value = pet["nomePet"]
+                        $0.value = pet.name
                     })
                     
                     self.form.allSections.first?.append(LabelRow("idade"){
                         $0.title = "Idade"
-                        $0.value = Util.getYearsOld(pet["anoNascAprox"]!)
+                        $0.value = pet.yearsOld
                     })
                     
                     self.form.allSections.first?.append(LabelRow("sexo"){
                         $0.title = "Sexo"
-                        $0.value = pet["sexo"]
+                        $0.value = pet.sex
                     })
                     
                     self.form.allSections.first?.append(LabelRow("porte"){
                         $0.title = "Porte"
-                        $0.value = pet["porte"]
+                        $0.value = pet.postage
                     })
                     
-                    self.infoMessage = "---Pet--<br> Nome: \(pet["nomePet"]!)<br> Idade: \(Util.getYearsOld(pet["anoNascAprox"]!))<br>"
-                    self.infoMessage += " Sexo: \(pet["sexo"]!)<br> Porte: \(pet["porte"]!)<br>----"
+                    self.infoMessage = "---Pet--<br> Nome: \(pet.name!)<br> Idade: \(pet.yearsOld)<br>"
+                    self.infoMessage += " Sexo: \(pet.sex!)<br> Porte: \(pet.postage!)<br>----"
                     
                 }
                 
                 if let event = AppManager.shared.eventSelected {
-                    let date = Util.getEventDate(event).string(dateStyle: .long, timeStyle: .short)
+                    let date = event.eventDate.string(dateStyle: .long, timeStyle: .short)
                     
                     self.form.append(Section("Evento"))
                     self.form.allSections.first?.append(LabelRow("title"){
                         $0.title = "Título"
-                        $0.value = event["titulo"]
+                        $0.value = event.title
                     })
                     
                     self.form.allSections.first?.append(LabelRow("type"){
                         $0.title = "Tipo"
-                        $0.value = event["tipo"]
+                        $0.value = event.type
                     })
                     
                     self.form.allSections.first?.append(LabelRow("when"){
@@ -73,8 +73,8 @@ class ContactViewController: FormViewController, MFMailComposeViewControllerDele
                         $0.value = date
                     })
                     
-                    self.infoMessage = "---Evento--<br> Título: \(event["titulo"]!)<br> Evento: \(event["descricao"]!)<br>"
-                    self.infoMessage += " Local: \(event["local"]!)<br> Data: \(date)<br> Tipo: \(event["tipo"]!)<br>----"
+                    self.infoMessage = "---Evento--<br> Título: \(event.title!)<br> Evento: \(event.description!)<br>"
+                    self.infoMessage += " Local: \(event.local!)<br> Data: \(date)<br> Tipo: \(event.title!)<br>----"
                     
                 }
             }

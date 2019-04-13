@@ -11,7 +11,7 @@ class PetDetailViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet var petTableView: UITableView!
     
-    var pet: [String: String]!
+    var pet: Pet!
     
     
     var info = [
@@ -31,15 +31,15 @@ class PetDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         self.petTableView.tableFooterView = UIView()
-        self.info[0]["info"] = self.pet["nomePet"]
-        self.info[1]["info"] = Util.getYearsOld(self.pet["anoNascAprox"]!)
+        self.info[0]["info"] = self.pet.name
+        self.info[1]["info"] = pet.yearsOld
         
         
-        self.info[2]["info"] = self.pet["sexo"]
+        self.info[2]["info"] = self.pet.sex
         self.info[2]["hasImage"] = Util.defineGender(pet).name
         
        // self.info[3]["info"] = Util.convertBoolParam(self.pet["podePassear"]!)
-        self.info[3]["info"] = self.pet["porte"]
+        self.info[3]["info"] = self.pet.postage
       //  self.info[5]["info"] = self.pet["status"]
       //  self.info[6]["info"] = self.pet["temperamento"]
        // self.info[7]["info"] = Util.convertBoolParam(self.pet["estaCastrado"]!)
@@ -60,7 +60,7 @@ class PetDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             cell = tableView.dequeueReusableCell(withIdentifier: "PhotoPetCell", for: indexPath)
             let imageView = cell.viewWithTag(1) as! UIImageView
             imageView.image = UIImage(named: "no-photo")
-            ServiceManager.loadImage(self.pet["fotoPet"]!, completionHandler: { (image) in
+            ServiceManager.loadImage(self.pet.photo!, completionHandler: { (image) in
                 if let _ = image {
                     imageView.image = image
                 }

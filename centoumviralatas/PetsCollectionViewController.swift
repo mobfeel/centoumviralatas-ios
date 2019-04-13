@@ -6,15 +6,16 @@
 //
 
 import UIKit
+import CoreData
 
 private let petCellIdentifier = "PetCell"
 
 class PetsCollectionViewController: UICollectionViewController {
     
     @IBOutlet var loading: UIActivityIndicatorView!
-    var petsData: [ [String: String] ] = []
-    var petsOrigin: [ [String: String] ] = []
     
+    var petsData: [Pet] = []
+    var petsOrigin: [Pet] = []
     var wasLoaded = false
 
     override func viewDidLoad() {
@@ -108,15 +109,14 @@ class PetsCollectionViewController: UICollectionViewController {
         
         petImage.image = UIImage(named: "no-photo")
         
-        lblYears.text = Util.getYearsOld(pet["anoNascAprox"]!)
-        lblName.text = pet["nomePet"]
-        lblSize.text = pet["porte"]
+        lblYears.text = pet.yearsOld
+        lblName.text = pet.name
+        lblSize.text = pet.postage
         
-        ServiceManager.loadImage(pet["fotoPet"]!) { (image) in
+        ServiceManager.loadImage(pet.photo!) { (image) in
             if let image = image {
                 petImage.image = image
             }
-            
         }
         genderImageView.image = Util.defineGender(pet).image
         return cell
@@ -141,7 +141,7 @@ class PetsCollectionViewController: UICollectionViewController {
             switch identifier {
             case "ShowPetDetail":
                 let pdvc = segue.destination as! PetDetailViewController
-                pdvc.pet = sender as! [String: String]
+                pdvc.pet = sender as? Pet
             default:
                 break
                 
@@ -168,25 +168,25 @@ class PetsCollectionViewController: UICollectionViewController {
             self.petsData = self.petsOrigin.filter({ (pet) -> Bool in
                 var show = true
                 if Filter.shared.porte != Porte.Todos {
-                    if pet["porte"] != Filter.shared.porte.rawValue {
+                    if pet.postage != Filter.shared.porte.rawValue {
                         show = false
                     }
                 }
                 
                 if Filter.shared.especie != Especie.Todos {
-                    if pet["tipo"] != Filter.shared.especie.rawValue.lowercased() {
+                    if pet.type != Filter.shared.especie.rawValue.lowercased() {
                         show = false
                     }
                 }
                 
                 if Filter.shared.sexo != Sexo.Todos {
-                    if pet["sexo"] != Filter.shared.especie.rawValue.lowercased() {
+                    if pet.sex != Filter.shared.especie.rawValue.lowercased() {
                         show = false
                     }
                 }
                 
                 if Filter.shared.idade != Idade.Todos {
-                    if pet["sexo"] != Filter.shared.especie.rawValue.lowercased() {
+                    if pet.sex != Filter.shared.especie.rawValue.lowercased() {
                         show = false
                     }
                 }

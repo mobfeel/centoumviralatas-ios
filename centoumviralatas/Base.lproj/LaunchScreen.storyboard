@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,18 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="imagem_topo" translatesAutoresizingMaskIntoConstraints="NO" id="RkK-V1-EO0">
-                                <rect key="frame" x="35" y="220" width="304" height="227"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="launch_logo" translatesAutoresizingMaskIntoConstraints="NO" id="RkK-V1-EO0">
+                                <rect key="frame" x="87" y="245" width="200" height="176"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="227" id="Coy-kJ-0kE"/>
-                                    <constraint firstAttribute="width" constant="304" id="Hz1-tA-UwY"/>
+                                    <constraint firstAttribute="height" constant="176" id="Coy-kJ-0kE"/>
+                                    <constraint firstAttribute="width" constant="200" id="Hz1-tA-UwY"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.56259328126907349" blue="0.0068243145942687988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="RkK-V1-EO0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="fZz-SF-Xvg"/>
-                            <constraint firstItem="RkK-V1-EO0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iPy-pf-4eq"/>
+                            <constraint firstItem="RkK-V1-EO0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-0.5" id="fZz-SF-Xvg"/>
+                            <constraint firstItem="RkK-V1-EO0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-0.5" id="iPy-pf-4eq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="imagem_topo" width="400" height="300"/>
+        <image name="launch_logo" width="200" height="177"/>
     </resources>
 </document>
