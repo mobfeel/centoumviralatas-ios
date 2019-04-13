@@ -12,7 +12,7 @@ import CoreData
 
 
 class ServiceManager {
-    static func fetchPets( result: @escaping (_ result: [Pet]) -> Void) {
+    static func fetchPets( result: @escaping (_ result: [Pet], _ byCoreData: Bool) -> Void) {
         Alamofire.request(ServiceURLs.SEARCH_PET, method: .get, parameters: nil).responseJSON { (response) in
             switch response.result {
             case .success(let value):
@@ -25,10 +25,10 @@ class ServiceManager {
                         print(error.localizedDescription)
                     }
                     
-                    result(pets)
+                    result(pets, false)
                 }
             case .failure(_):
-                result(PetDAO.fetch())
+                result(PetDAO.fetch(), true)
             }
         }
     }
@@ -44,38 +44,6 @@ class ServiceManager {
                 result([])
             }
         }
-        
-        
-//        [{"idEvento":"2","titulo":"Mutirão de Banho","descricao":"Venha auxiliar no banho dos nossos peludinhos","local":"na ONG","data":"2018-01-31","horaInicio":"08:00:00","horaFim":"18:00:00","imagem":"../fotos-eventos/2.jpg","tipo":"Banho"}]
-//        let events = [
-//            [
-//                "idEvento": "2",
-//                "titulo": "Mutirão de Banho",
-//                "descricao": "Venha auxiliar no banho dos nossos peludinhos",
-//                "local": "na ONG",
-//                "data": "2018-01-31",
-//                "horaInicio": "08:00:00",
-//                "horaFim": "18:00:00",
-//                "imagem": "../fotos-eventos/2.jpg",
-//                "tipo": "Banho"
-//            ]
-//
-//        ]
-//
-//        result(events)
-//
-        
-//        Alamofire.request(url, method: .get, parameters: nil).responseJSON { (response) in
-//            if response.result.isSuccess {
-//                if let pets = response.result.value as? [ [String: String] ] {
-//                    result(pets)
-//                }else{
-//                    result([])
-//                }
-//            }else{
-//                result([])
-//            }
-//        }
     }
     
     static func loadImage(_ path: String, completionHandler:@escaping (_ image: UIImage? ) -> Void) {

@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import CRNotifications
 
 private let petCellIdentifier = "PetCell"
 
@@ -102,11 +103,15 @@ class PetsCollectionViewController: UICollectionViewController {
     }
     
     func fetchPets(){
-        ServiceManager.fetchPets { (pets) in
+        ServiceManager.fetchPets { (pets, byCoreData) in
             self.petsData = pets
             self.petsOrigin = pets
             self.collectionView?.reloadData()
             self.loading.stopAnimating()
+            
+            if byCoreData {
+                CRNotifications.showNotification(type: .success, title: "CoreData", message: "Pets buscados pelo CoreData", dismissDelay: 3)
+            }
         }
     }
     
