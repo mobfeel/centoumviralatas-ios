@@ -196,7 +196,7 @@ class ContactViewController: FormViewController, MFMailComposeViewControllerDele
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
                 mail.mailComposeDelegate = self
-                mail.setToRecipients(["thiagocury@gmail.com", "guicolares@gmail.com"])
+                mail.setToRecipients(["101viralatas@gmail.com"])
                 mail.setSubject("Contato Via App-IOS ")
                 mail.setMessageBody("<p>\(emailMessage)!</p>", isHTML: true)
                 

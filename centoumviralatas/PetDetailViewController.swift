@@ -12,19 +12,11 @@ class PetDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var petTableView: UITableView!
     
     var pet: Pet!
-    
-    
     var info = [
         ["label" : "Nome", "hasImage": "name-cell", "info": ""], // nothing
         ["label" : "Anos Aproximado", "hasImage": "birthdate-cell", "info": ""],
         ["label" : "Sexo", "hasImage": "", "info": ""],
-//        ["label" : "Pode Passear", "hasImage": "walking-with-dog-cell", "info": ""],
         ["label" : "Porte", "hasImage": "rule-cell", "info": ""]
-//        ["label" : "Onde", "hasImage": "location-cell", "info": ""],
-//        ["label" : "Temperamento", "hasImage": "temp-cell", "info": ""],
-//        ["label" : "Está Castrado", "hasImage": "castrado-cell", "info": ""],
-//        ["label" : "Necessidades Especiais", "hasImage": "", "info": ""],
-//        ["label" : "Identificador do Pet", "hasImage": "name-cell", "info": ""]
     ]
     
     override func viewDidLoad() {
@@ -33,19 +25,9 @@ class PetDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         self.petTableView.tableFooterView = UIView()
         self.info[0]["info"] = self.pet.name
         self.info[1]["info"] = pet.yearsOld
-        
-        
         self.info[2]["info"] = self.pet.sex
         self.info[2]["hasImage"] = Util.defineGender(pet).name
-        
-       // self.info[3]["info"] = Util.convertBoolParam(self.pet["podePassear"]!)
         self.info[3]["info"] = self.pet.postage
-      //  self.info[5]["info"] = self.pet["status"]
-      //  self.info[6]["info"] = self.pet["temperamento"]
-       // self.info[7]["info"] = Util.convertBoolParam(self.pet["estaCastrado"]!)
-      //  self.info[8]["info"] = self.pet["necessidadesEspeciais"]
-        //self.info[9]["info"] = self.pet["idPet"]
-        
         self.title = self.info[0]["info"]
     }
     
@@ -60,7 +42,7 @@ class PetDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             cell = tableView.dequeueReusableCell(withIdentifier: "PhotoPetCell", for: indexPath)
             let imageView = cell.viewWithTag(1) as! UIImageView
             imageView.image = UIImage(named: "no-photo")
-            ServiceManager.loadImage(self.pet.photo!, completionHandler: { (image) in
+            Util.loadImage(self.pet.photo!, completionHandler: { (image) in
                 if let _ = image {
                     imageView.image = image
                 }

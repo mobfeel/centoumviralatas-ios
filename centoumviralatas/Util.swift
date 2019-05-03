@@ -32,6 +32,19 @@ class Util {
     static func getManagedObjectContext() -> NSManagedObjectContext{
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
+    
+    static func loadImage(_ path: String, completionHandler:@escaping (_ image: UIImage? ) -> Void) {
+        if path == "nenhum" || path == "Nenhum" || path == "" {
+            completionHandler(nil)
+        }else{
+            var pathAux = path
+            pathAux.removeFirst(3)
+            let url = ServiceURLs.PHOTOS + pathAux
+            ImageLoader.sharedLoader.imageForUrl(url, completionHandler: { (image, url) in
+                completionHandler(image)
+            })
+        }
+    }
 }
 
 class AppManager {

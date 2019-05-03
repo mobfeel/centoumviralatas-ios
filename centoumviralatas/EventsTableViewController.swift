@@ -57,7 +57,7 @@ class EventsTableViewController: UITableViewController {
         cell.lblDate.text = "\(eventDate.day) \(eventDate.shortMonthName) / \(eventDate.hour)h"
         cell.lblDateDesc.text = eventDate.string(dateStyle: .long, timeStyle: .short)
         
-        ServiceManager.loadImage(event.imagePath!) { (image) in
+        Util.loadImage(event.imagePath!) { (image) in
             if let image = image {
                 cell.coverPhoto.image = image
             }

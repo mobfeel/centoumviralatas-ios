@@ -15,6 +15,7 @@
 		A9779DED22592C4E0047A9C0 /* Transforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9779DEC22592C4E0047A9C0 /* Transforms.swift */; };
 		A978FA402260EDAB00FDAAD7 /* centoumviralatasCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A978FA3E2260EDAB00FDAAD7 /* centoumviralatasCore.xcdatamodeld */; };
 		A978FA432260F6BC00FDAAD7 /* PetDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978FA422260F6BC00FDAAD7 /* PetDAO.swift */; };
+		A992CB1322624C4F0037175F /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = A992CB1222624C4F0037175F /* View.xib */; };
 		A9B0CB471FF71CFC005D2083 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0CB461FF71CFC005D2083 /* AppDelegate.swift */; };
 		A9B0CB4E1FF71CFC005D2083 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B0CB4D1FF71CFC005D2083 /* Assets.xcassets */; };
 		A9B0CB511FF71CFC005D2083 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B0CB4F1FF71CFC005D2083 /* LaunchScreen.storyboard */; };
@@ -72,6 +73,7 @@
 		A9779DEC22592C4E0047A9C0 /* Transforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transforms.swift; sourceTree = "<group>"; };
 		A978FA3F2260EDAB00FDAAD7 /* centoumviralatas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = centoumviralatas.xcdatamodel; sourceTree = "<group>"; };
 		A978FA422260F6BC00FDAAD7 /* PetDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDAO.swift; sourceTree = "<group>"; };
+		A992CB1222624C4F0037175F /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		A9B0CB431FF71CFC005D2083 /* centoumviralatas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = centoumviralatas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B0CB461FF71CFC005D2083 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B0CB4D1FF71CFC005D2083 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -210,10 +212,10 @@
 		A9B0CB451FF71CFC005D2083 /* centoumviralatas */ = {
 			isa = PBXGroup;
 			children = (
-				A9779DEB225923F80047A9C0 /* Helpers */,
 				A9B0CB771FF71D31005D2083 /* Models */,
 				A9B0CB761FF71D21005D2083 /* Views */,
 				A9B0CB751FF71D16005D2083 /* ViewControllers */,
+				A9779DEB225923F80047A9C0 /* Helpers */,
 				A9B0CB741FF71D06005D2083 /* Supporting Files */,
 			);
 			path = centoumviralatas;
@@ -266,6 +268,7 @@
 			children = (
 				A9B0CB781FF71D6E005D2083 /* Main.storyboard */,
 				A9B371751FF9802A00C65DBA /* More.storyboard */,
+				A992CB1222624C4F0037175F /* View.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9B0CB791FF71D6E005D2083 /* Main.storyboard in Resources */,
+				A992CB1322624C4F0037175F /* View.xib in Resources */,
 				A9B371761FF9802A00C65DBA /* More.storyboard in Resources */,
 				A9B0CB511FF71CFC005D2083 /* LaunchScreen.storyboard in Resources */,
 				A9B0CB4E1FF71CFC005D2083 /* Assets.xcassets in Resources */,

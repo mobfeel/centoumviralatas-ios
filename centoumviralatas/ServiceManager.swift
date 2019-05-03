@@ -46,22 +46,6 @@ class ServiceManager {
         }
     }
     
-    static func loadImage(_ path: String, completionHandler:@escaping (_ image: UIImage? ) -> Void) {
-        if path == "nenhum" || path == "Nenhum" || path == ""{
-            completionHandler(nil)
-        }else{
-            var pathAux = path
-            pathAux.removeFirst(3)
-            let url = ServiceURLs.PHOTOS + pathAux
-            ImageLoader.sharedLoader.imageForUrl(url, completionHandler: { (image, url) in
-                completionHandler(image)
-            })
-        }
-    }
-    
-    
-    
-    
     
 }
 

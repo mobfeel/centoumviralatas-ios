@@ -33,7 +33,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CoverPhotoCell", for: indexPath)
             let imageView = cell.viewWithTag(1) as! UIImageView
-            ServiceManager.loadImage(self.event.imagePath!) { (image) in
+            Util.loadImage(self.event.imagePath!) { (image) in
                 if let image = image {
                     imageView.image = image
                 }

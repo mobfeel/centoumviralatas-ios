@@ -10,6 +10,7 @@ import CoreData
 import CRNotifications
 
 private let petCellIdentifier = "PetCell"
+private let segueIdentfierShowPetDetail = "ShowPetDetail"
 
 class PetsCollectionViewController: UICollectionViewController {
     
@@ -17,7 +18,6 @@ class PetsCollectionViewController: UICollectionViewController {
     
     var petsData: [Pet] = []
     var petsOrigin: [Pet] = []
-    var wasLoaded = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +65,7 @@ class PetsCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let pet = self.petsData[indexPath.row]
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PetCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: petCellIdentifier, for: indexPath)
         
         cell.layer.shadowColor = UIColor.black.cgColor
       //  cell.layer.shadowOffset = CGSize(width: 100, height: 20)
@@ -88,7 +88,7 @@ class PetsCollectionViewController: UICollectionViewController {
         lblName.text = pet.name
         lblSize.text = pet.postage
         
-        ServiceManager.loadImage(pet.photo!) { (image) in
+        Util.loadImage(pet.photo!) { (image) in
             if let image = image {
                 petImage.image = image
             }
@@ -99,7 +99,7 @@ class PetsCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let pet = self.petsData[indexPath.row]
-        self.performSegue(withIdentifier: "ShowPetDetail", sender:pet)
+        self.performSegue(withIdentifier: segueIdentfierShowPetDetail, sender:pet)
     }
     
     func fetchPets(){
